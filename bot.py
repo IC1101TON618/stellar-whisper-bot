@@ -6,6 +6,7 @@ from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
 import random
 import hashlib
+import os
 from datetime import date
 user_data = {}
 daily_limits = {}
@@ -196,11 +197,9 @@ def can_get_horoscope(user_id: int, h_type: str):
     return True
 
 
-TOKEN = "8387766907:AAFoOXYDgLMdq7S0nj13qoto0h3ALem7sYY"
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 
-logging.basicConfig(level=logging.INFO)
-
-bot = Bot(token=TOKEN)
+bot = Bot(token=BOT_TOKEN)
 dp = Dispatcher(bot)
 
 
