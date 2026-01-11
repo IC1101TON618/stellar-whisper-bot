@@ -4,9 +4,9 @@ from aiogram import Bot, Dispatcher, executor, types
 import logging
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
+import os
 import random
 import hashlib
-import os
 from datetime import date
 user_data = {}
 daily_limits = {}
