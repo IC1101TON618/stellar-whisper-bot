@@ -1,5 +1,3 @@
-print("BOT FILE STARTED")
-
 from aiogram import Bot, Dispatcher, executor, types
 import logging
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
