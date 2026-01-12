@@ -1,5 +1,6 @@
 import os
-from aiogram import Bot, Dispatcher, executor, types
+from aiogram import Bot, Dispatcher, types
+from aiogram.utils import executor
 import logging
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
@@ -339,20 +340,6 @@ async def open_horoscope(call: types.CallbackQuery):
         "✨ Выбери, какое послание ты хочешь получить сегодня:",
         reply_markup=keyboard
     )
-    await call.answer()
-@dp.callback_query_handler(lambda c: c.data == "horo_day")
-async def horo_day(call: types.CallbackQuery):
-    user_id = call.from_user.id
-    zodiac = user_data[user_id]["zodiac"]
-
-    text = generate_horoscope(user_id, zodiac, "day")
-
-    await call.message.answer(
-    f"🌙 *Послание дня*\n\n{text}",
-    parse_mode="Markdown",
-    reply_markup=main_menu
-)
-
     await call.answer()
 @dp.message_handler(lambda message: message.text == "🔮 Послание дня")
 async def menu_day(message: types.Message):
